@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1570 565" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Updated ARIS architecture figure">
+  <style>/* svg typography */
+svg text{font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif;fill:#1f1f1f}
+svg .m{font-family:"STIX Two Text","Times New Roman",serif;font-style:italic}
+svg .r{font-family:"STIX Two Text","Times New Roman",serif;font-style:normal}
+svg .gray{fill:#6b6b6b}
+</style><defs>
+    <marker id="bh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L10,5 L0,9 z" fill="#333"></path></marker>
+    <marker id="bhg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L10,5 L0,9 z" fill="#777"></path></marker>
+    <marker id="bhr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L10,5 L0,9 z" fill="#f07070"></path></marker>
+    <marker id="bhgr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L10,5 L0,9 z" fill="#1a8a1a"></path></marker>
+  </defs>
+  <!-- rate labels -->
+  <text x="663" y="30" font-size="14" text-anchor="middle" class="gray">frame rate (10 ms)</text>
+  <text x="872" y="30" font-size="14" text-anchor="middle" class="gray">sample rate (16 / 24 kHz)</text>
+  <line x1="765" y1="42" x2="765" y2="478" stroke="#888" stroke-width="1.5" stroke-dasharray="6 5"></line>
+  <text x="765" y="62" font-size="14" text-anchor="middle" class="gray">upsample ↑ <tspan class="m">f</tspan><tspan class="m" font-size="10" dy="3">s</tspan></text>
+
+  <!-- regions -->
+  <rect x="168" y="78" width="585" height="400" rx="10" fill="#fdeeee"></rect>
+  <text x="184" y="100" font-size="13" fill="#b44" font-weight="600" letter-spacing="0.06em">ENCODER</text>
+  <rect x="790" y="118" width="600" height="310" rx="10" fill="#fefbe6"></rect>
+  <text x="806" y="140" font-size="13" fill="#8a6d00" font-weight="600" letter-spacing="0.06em">DETERMINISTIC DSP</text>
+
+  <!-- F0 box -->
+  <rect x="18" y="104" width="136" height="56" rx="6" fill="#fff" stroke="#444" stroke-width="1.4"></rect>
+  <text x="86" y="128" font-size="18" text-anchor="middle"><tspan class="m">F</tspan><tspan class="r" font-size="12" dy="4">0</tspan><tspan dy="-4"> / voicing</tspan></text>
+  <text x="86" y="149" font-size="13" text-anchor="middle">RMVPE, supplied</text>
+  <text x="31" y="126" font-size="15" text-anchor="middle">★</text>
+  <!-- F0 dotted: to source view and to source head -->
+  <polyline points="154,132 270,132 270,150" fill="none" stroke="#1a8a1a" stroke-width="1.8" stroke-dasharray="2 3" marker-end="url(#bhgr)"></polyline>
+  <polyline points="270,132 270,92 776,92 776,147" fill="none" stroke="#1a8a1a" stroke-width="1.8" stroke-dasharray="2 3"></polyline>
+
+  <!-- input -->
+  <rect x="9" y="230" width="137" height="106" rx="9" fill="#d4d4fb" stroke="#5a5af0" stroke-width="2"></rect>
+  <text x="77" y="259" font-size="19" text-anchor="middle">Input</text>
+  <text x="77" y="284" font-size="19" text-anchor="middle">speech</text>
+  <path class="wave" data-x="45" data-y="311" data-w="64" data-h="15" fill="none" stroke="#2a58b8" stroke-width="1.2" d="M45.0,311.0L45.5,311.0L46.1,311.0L46.6,311.1L47.1,310.8L47.7,311.3L48.2,310.7L48.7,311.6L49.3,310.3L49.8,311.8L50.3,309.9L50.9,312.2L51.4,309.4L51.9,312.1L52.5,309.6L53.0,313.2L53.5,308.5L54.1,312.3L54.6,308.0L55.1,313.8L55.7,306.6L56.2,315.4L56.7,308.7L57.3,315.0L57.8,305.1L58.3,316.3L58.9,305.6L59.4,316.4L59.9,303.6L60.5,318.7L61.0,305.9L61.5,316.1L62.1,302.7L62.6,316.5L63.1,306.5L63.7,316.6L64.2,304.4L64.7,316.9L65.3,300.4L65.8,319.0L66.3,301.6L66.9,321.7L67.4,306.5L67.9,317.2L68.5,302.5L69.0,319.1L69.5,303.6L70.1,316.6L70.6,299.9L71.1,315.5L71.7,304.2L72.2,317.6L72.7,302.1L73.3,321.6L73.8,303.5L74.3,315.9L74.9,304.6L75.4,316.4L75.9,305.2L76.5,317.0L77.0,305.8L77.5,317.2L78.1,304.6L78.6,315.1L79.1,303.7L79.7,315.8L80.2,304.6L80.7,316.1L81.3,306.2L81.8,315.1L82.3,307.2L82.9,315.2L83.4,306.3L83.9,313.7L84.5,307.6L85.0,313.0L85.5,308.4L86.1,312.9L86.6,309.3L87.1,312.7L87.7,308.8L88.2,313.1L88.7,310.1L89.3,312.6L89.8,310.3L90.3,311.9L90.9,310.4L91.4,311.5L91.9,309.9L92.5,311.5L93.0,310.3L93.5,311.4L94.1,310.5L94.6,311.6L95.1,310.7L95.7,311.6L96.2,310.4L96.7,311.6L97.3,310.4L97.8,311.6L98.3,310.5L98.9,311.3L99.4,310.8L99.9,311.3L100.5,310.8L101.0,311.2L101.5,310.6L102.1,311.2L102.6,310.6L103.1,311.3L103.7,310.7L104.2,311.2L104.7,310.7L105.3,311.1L105.8,310.9L106.3,311.2L106.9,310.9L107.4,311.1L107.9,311.0L108.5,311.0L109.0,311.0"></path>
+  <!-- input bus into three views -->
+  <line x1="146" y1="283" x2="176" y2="283" stroke="#333" stroke-width="1.5"></line>
+  <polyline points="176,179 176,387" fill="none" stroke="#333" stroke-width="1.5"></polyline>
+  <line x1="176" y1="179" x2="188" y2="179" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+  <line x1="176" y1="283" x2="188" y2="283" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+  <line x1="176" y1="387" x2="188" y2="387" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+
+  <!-- observation views -->
+  <g font-size="15">
+    <rect x="190" y="150" width="170" height="58" rx="7" fill="#fff" stroke="#e85050" stroke-width="1.6"></rect>
+    <text x="275" y="172" font-size="16" text-anchor="middle" font-weight="600">Source view</text>
+    <text x="275" y="196" font-size="13.5" text-anchor="middle">harmonics at <tspan class="m">kF</tspan><tspan class="r" font-size="9" dy="3">0</tspan><tspan dy="-3"> vs. valleys</tspan></text>
+    <rect x="190" y="254" width="170" height="58" rx="7" fill="#fff" stroke="#e85050" stroke-width="1.6"></rect>
+    <text x="275" y="276" font-size="16" text-anchor="middle" font-weight="600">Tract view</text>
+    <text x="275" y="300" font-size="13.5" text-anchor="middle">long-window log spectrum</text>
+    <rect x="190" y="358" width="170" height="58" rx="7" fill="#fff" stroke="#e85050" stroke-width="1.6"></rect>
+    <text x="275" y="380" font-size="16" text-anchor="middle" font-weight="600">Noise view</text>
+    <text x="275" y="404" font-size="13.5" text-anchor="middle">short-window spec. + SNR</text>
+  </g>
+  <!-- views to conformer -->
+  <polyline points="360,179 372,179 372,387 360,387" fill="none" stroke="#333" stroke-width="1.5"></polyline>
+  <line x1="360" y1="283" x2="384" y2="283" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+
+  <!-- conformer -->
+  <rect x="386" y="225" width="140" height="116" rx="9" fill="#ffc9c9" stroke="#e85050" stroke-width="2"></rect>
+  <text x="456" y="252" font-size="19" text-anchor="middle">Conformer</text>
+  <text x="456" y="273" font-size="14" text-anchor="middle">fusion + 6 layers</text>
+  <g class="net" data-x="433" data-y="286" data-w="46" data-h="28" data-color="#b33"><line x1="433" y1="291.6" x2="456" y2="295.8" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="433" y1="291.6" x2="456" y2="304.2" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="433" y1="300" x2="456" y2="295.8" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="433" y1="300" x2="456" y2="304.2" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="433" y1="308.4" x2="456" y2="295.8" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="433" y1="308.4" x2="456" y2="304.2" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="456" y1="295.8" x2="479" y2="291.6" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="456" y1="295.8" x2="479" y2="300" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="456" y1="295.8" x2="479" y2="308.4" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="456" y1="304.2" x2="479" y2="291.6" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="456" y1="304.2" x2="479" y2="300" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><line x1="456" y1="304.2" x2="479" y2="308.4" stroke="#b33" stroke-width="0.6" opacity="0.7"></line><circle cx="433" cy="291.6" r="2.2" fill="#b33"></circle><circle cx="433" cy="300" r="2.2" fill="#b33"></circle><circle cx="433" cy="308.4" r="2.2" fill="#b33"></circle><circle cx="479" cy="291.6" r="2.2" fill="#b33"></circle><circle cx="479" cy="300" r="2.2" fill="#b33"></circle><circle cx="479" cy="308.4" r="2.2" fill="#b33"></circle><circle cx="456" cy="295.8" r="2.2" fill="#b33"></circle><circle cx="456" cy="304.2" r="2.2" fill="#b33"></circle></g>
+  <text x="456" y="360" font-size="12.5" text-anchor="middle" fill="#9a3b3b">each head sees</text>
+  <text x="456" y="376" font-size="12.5" text-anchor="middle" fill="#9a3b3b">[context ‖ own view]</text>
+
+  <!-- context bus to heads -->
+  <line x1="526" y1="283" x2="542" y2="283" stroke="#333" stroke-width="1.5"></line>
+  <polyline points="542,150 542,430" fill="none" stroke="#333" stroke-width="1.5"></polyline>
+  <line x1="542" y1="150" x2="558" y2="150" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+  <line x1="542" y1="283" x2="558" y2="283" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+  <line x1="542" y1="430" x2="558" y2="430" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+
+  <!-- heads -->
+  <rect x="560" y="106" width="182" height="82" rx="8" fill="#cdfccd" stroke="#1f9b1f" stroke-width="2"></rect>
+  <text x="651" y="132" font-size="18" text-anchor="middle">Source head</text>
+  <text x="651" y="163" font-size="17" text-anchor="middle">★<tspan class="m">R</tspan><tspan class="m" font-size="12" dy="4">d</tspan><tspan dy="-4">, spectral tilt</tspan></text>
+
+  <rect x="560" y="206" width="182" height="190" rx="8" fill="#cdfccd" stroke="#1f9b1f" stroke-width="2"></rect>
+  <text x="651" y="230" font-size="18" text-anchor="middle">Tract head</text>
+  <rect x="572" y="240" width="158" height="44" rx="6" fill="#e9fee9" stroke="#1f9b1f" stroke-width="1.2"></rect>
+  <text x="651" y="259" font-size="15.5" text-anchor="middle">★<tspan class="m">F</tspan><tspan class="r" font-size="11" dy="4">1</tspan><tspan dy="-4">/</tspan><tspan class="m">F</tspan><tspan class="r" font-size="11" dy="4">2</tspan><tspan dy="-4">/</tspan><tspan class="m">F</tspan><tspan class="r" font-size="11" dy="4">3</tspan><tspan dy="-4">, gain</tspan></text>
+  <text x="651" y="277" font-size="13" text-anchor="middle">coupled bandwidths <tspan class="m">B</tspan><tspan class="m" font-size="9" dy="3">i</tspan></text>
+  <rect x="572" y="292" width="158" height="44" rx="6" fill="#ececec" stroke="#777" stroke-width="1.3" stroke-dasharray="6 3"></rect>
+  <text x="651" y="312" font-size="15" text-anchor="middle"><tspan class="r">8</tspan> residual pole pairs</text>
+  <text x="651" y="329" font-size="13" text-anchor="middle"><tspan class="m">A</tspan><tspan class="m" font-size="10" dy="4">j</tspan><tspan class="r" font-size="10" dx="-3" dy="-11">res</tspan><tspan dy="7">, 2 low-frequency</tspan></text>
+  <rect x="572" y="344" width="158" height="44" rx="6" fill="#ececec" stroke="#777" stroke-width="1.3" stroke-dasharray="6 3"></rect>
+  <text x="651" y="364" font-size="15" text-anchor="middle"><tspan class="r">2</tspan> gated nasal zeros</text>
+  <text x="651" y="381" font-size="13" text-anchor="middle"><tspan class="m">B</tspan><tspan class="m" font-size="10" dy="4">m</tspan><tspan class="r" font-size="10" dx="-6" dy="-11">zero</tspan><tspan dy="7">, gated; </tspan><tspan class="m">F</tspan><tspan class="m" font-size="10" dy="3">z</tspan><tspan dy="-3">, </tspan><tspan class="m">B</tspan><tspan class="m" font-size="10" dy="3">z</tspan></text>
+
+  <rect x="560" y="410" width="182" height="58" rx="8" fill="#cdfccd" stroke="#1f9b1f" stroke-width="2"></rect>
+  <text x="651" y="434" font-size="18" text-anchor="middle">Noise head</text>
+  <text x="651" y="456" font-size="14.5" text-anchor="middle">513-bin FIR magnitude</text>
+
+  <!-- routing to DSP -->
+  <polyline points="742,147 776,147 813,184" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></polyline>
+  <polyline points="742,439 776,439 813,356" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></polyline>
+  <polyline points="742,262 782,262 782,455 1252,455 1252,362" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></polyline>
+  <polyline points="730,314 782,314" fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="6 4"></polyline>
+  <polyline points="730,366 782,366" fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="6 4"></polyline>
+  <circle cx="782" cy="262" r="3.5" fill="#333"></circle>
+  <text x="1262" y="444" font-size="14" class="gray">poles + zeros</text>
+
+  <!-- DSP blocks -->
+  <rect x="815" y="152" width="190" height="90" rx="8" fill="#fff7b0" stroke="#c9b640" stroke-width="2"></rect>
+  <text x="910" y="178" font-size="19" text-anchor="middle">LF glottal source</text>
+  <text x="910" y="200" font-size="14" text-anchor="middle"><tspan class="m">R</tspan><tspan class="m" font-size="10" dy="3">d</tspan><tspan dy="-3"> ∈ [0.3, 2.7], tilt</tspan></text>
+  <path class="pulse" data-x="878" data-y="212" data-w="64" data-h="20" data-n="9" fill="none" stroke="#8a6d00" stroke-width="1.2" d="M878,232 L879.1,212 L882.3,217.0 L883.0,232 L885.1,232 L886.2,212 L889.4,217.0 L890.1,232 L892.2,232 L893.3,212 L896.5,217.0 L897.2,232 L899.3,232 L900.4,212 L903.6,217.0 L904.3,232 L906.4,232 L907.5,212 L910.7,217.0 L911.4,232 L913.6,232 L914.6,212 L917.8,217.0 L918.5,232 L920.7,232 L921.7,212 L924.9,217.0 L925.6,232 L927.8,232 L928.8,212 L932.0,217.0 L932.8,232 L934.9,232 L936.0,212 L939.2,217.0 L939.9,232 L942.0,232"></path>
+
+  <rect x="815" y="302" width="190" height="90" rx="8" fill="#fff7b0" stroke="#c9b640" stroke-width="2"></rect>
+  <text x="910" y="328" font-size="19" text-anchor="middle">Noise + zero-phase FIR</text>
+  <text x="910" y="350" font-size="14" text-anchor="middle">time-varying <tspan class="m">C</tspan><tspan class="m" font-size="10" dy="3">t</tspan></text>
+  <ellipse cx="910" cy="370" rx="34" ry="9" fill="none" stroke="#b39a2a" stroke-width="0.8" stroke-dasharray="2 2"></ellipse>
+  <path class="noise" data-x="878" data-y="370" data-w="64" data-h="7" fill="none" stroke="#8a6d00" stroke-width="1" d="M878.0,370.0L878.9,370.0L879.8,369.8L880.7,369.1L881.7,370.9L882.6,369.7L883.5,370.1L884.4,369.9L885.3,369.9L886.2,368.8L887.1,368.3L888.1,371.4L889.0,367.4L889.9,369.1L890.8,370.7L891.7,372.9L892.6,368.9L893.5,366.0L894.5,367.1L895.4,372.5L896.3,371.0L897.2,370.6L898.1,369.8L899.0,366.8L899.9,367.6L900.9,373.7L901.8,363.7L902.7,366.0L903.6,371.0L904.5,372.9L905.4,363.4L906.3,368.4L907.3,375.4L908.2,370.3L909.1,364.4L910.0,371.5L910.9,376.4L911.8,367.5L912.7,375.6L913.7,363.4L914.6,373.0L915.5,374.2L916.4,376.0L917.3,367.2L918.2,365.7L919.1,373.8L920.1,375.5L921.0,372.8L921.9,375.8L922.8,373.4L923.7,369.2L924.6,367.4L925.5,371.2L926.5,365.4L927.4,374.2L928.3,372.9L929.2,368.8L930.1,372.9L931.0,366.4L931.9,371.1L932.9,372.7L933.8,370.3L934.7,370.9L935.6,370.0L936.5,371.3L937.4,369.8L938.3,371.1L939.3,370.9L940.2,369.9L941.1,370.2L942.0,370.0"></path>
+
+  <polyline points="1005,197 1032,197 1032,242" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></polyline>
+  <polyline points="1005,347 1032,347 1032,294" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></polyline>
+  <circle cx="1032" cy="268" r="24" fill="#fff" stroke="#444" stroke-width="1.5"></circle>
+  <circle cx="1032" cy="268" r="11" fill="none" stroke="#222" stroke-width="1.3"></circle>
+  <line x1="1021" y1="268" x2="1043" y2="268" stroke="#222" stroke-width="1.3"></line><line x1="1032" y1="257" x2="1032" y2="279" stroke="#222" stroke-width="1.3"></line>
+  <line x1="1056" y1="268" x2="1125" y2="268" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+  <text x="1062" y="259" font-size="14" class="gray">excit. <tspan class="r" font-weight="700" fill="#555">u</tspan><tspan class="m" font-size="10" dy="3" fill="#555">t</tspan></text>
+
+  <rect x="1127" y="178" width="250" height="184" rx="8" fill="#fff7b0" stroke="#c9b640" stroke-width="2"></rect>
+  <text x="1252" y="204" font-size="19" text-anchor="middle">Hybrid pole–zero filter</text>
+  <!-- fraction -->
+  <text x="1252" y="236" font-size="16" text-anchor="middle"><tspan class="m">A</tspan><tspan class="m" font-size="11" dy="4">F</tspan><tspan class="r" font-size="8" dy="2">1</tspan><tspan class="m" dy="-6" dx="2">A</tspan><tspan class="m" font-size="11" dy="4">F</tspan><tspan class="r" font-size="8" dy="2">2</tspan><tspan class="m" dy="-6" dx="2">A</tspan><tspan class="m" font-size="11" dy="4">F</tspan><tspan class="r" font-size="8" dy="2">3</tspan><tspan class="r" dy="-6" dx="3">∏</tspan><tspan class="r" font-size="10" dy="-7">8</tspan><tspan class="m" font-size="10" dx="-6" dy="13">j</tspan><tspan class="r" font-size="10">=1</tspan><tspan class="m" dy="-6" dx="2">A</tspan><tspan class="m" font-size="11" dy="5">j</tspan><tspan class="r" font-size="11" dx="-4" dy="-13">res</tspan></text>
+  <line x1="1170" y1="247" x2="1334" y2="247" stroke="#333" stroke-width="1"></line>
+  <text x="1252" y="268" font-size="16" text-anchor="middle"><tspan class="r">∏</tspan><tspan class="r" font-size="10" dy="-7">2</tspan><tspan class="m" font-size="10" dx="-6" dy="13">m</tspan><tspan class="r" font-size="10">=1</tspan><tspan class="m" dy="-6" dx="2">B</tspan><tspan class="m" font-size="11" dy="5">m</tspan><tspan class="r" font-size="11" dx="-7" dy="-13">zero</tspan></text>
+  <text x="1252" y="296" font-size="13.5" text-anchor="middle"><tspan class="r">|</tspan><tspan class="m">p</tspan><tspan class="r">| ≤ 0.99, sample-wise recursion</tspan></text>
+  <path class="spec" data-x="1216" data-y="306" data-w="76" data-h="44" data-notch="1" fill="none" stroke="#8a6d00" stroke-width="1.1" d="M1216.0,321.0L1216.8,320.9L1217.5,320.3L1218.3,319.3L1219.0,317.7L1219.8,315.3L1220.6,312.4L1221.3,309.2L1222.1,306.4L1222.8,304.5L1223.6,304.0L1224.4,305.0L1225.1,307.4L1225.9,310.7L1226.6,314.3L1227.4,317.7L1228.2,320.4L1228.9,322.5L1229.7,323.9L1230.4,324.6L1231.2,324.9L1232.0,324.7L1232.7,324.1L1233.5,323.1L1234.2,321.8L1235.0,320.1L1235.8,318.3L1236.5,316.5L1237.3,315.1L1238.0,314.2L1238.8,314.0L1239.6,314.6L1240.3,316.0L1241.1,317.9L1241.8,320.1L1242.6,322.4L1243.4,324.7L1244.1,327.4L1244.9,331.9L1245.6,337.6L1246.4,340.7L1247.2,338.1L1247.9,333.0L1248.7,329.3L1249.4,327.6L1250.2,326.5L1251.0,325.7L1251.7,324.9L1252.5,324.3L1253.2,324.0L1254.0,324.0L1254.8,324.5L1255.5,325.2L1256.3,326.3L1257.0,327.6L1257.8,328.9L1258.6,330.3L1259.3,331.5L1260.1,332.7L1260.8,333.6L1261.6,334.5L1262.4,335.1L1263.1,335.6L1263.9,336.1L1264.6,336.4L1265.4,336.8L1266.2,337.0L1266.9,337.3L1267.7,337.5L1268.4,337.8L1269.2,338.0L1270.0,338.3L1270.7,338.5L1271.5,338.7L1272.2,339.0L1273.0,339.2L1273.8,339.5L1274.5,339.7L1275.3,339.9L1276.0,340.2L1276.8,340.4L1277.6,340.6L1278.3,340.9L1279.1,341.1L1279.8,341.4L1280.6,341.6L1281.4,341.8L1282.1,342.1L1282.9,342.3L1283.6,342.5L1284.4,342.8L1285.2,343.0L1285.9,343.3L1286.7,343.5L1287.4,343.7L1288.2,344.0L1289.0,344.2L1289.7,344.4L1290.5,344.7L1291.2,344.9L1292.0,345.2"></path>
+  <line x1="1377" y1="270" x2="1416" y2="270" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+
+  <!-- output -->
+  <rect x="1418" y="217" width="143" height="106" rx="9" fill="#d4d4fb" stroke="#5a5af0" stroke-width="2"></rect>
+  <text x="1489" y="246" font-size="19" text-anchor="middle">Resynth.</text>
+  <text x="1489" y="271" font-size="19" text-anchor="middle">speech</text>
+  <path class="wave" data-x="1457" data-y="298" data-w="64" data-h="15" data-seed="3" fill="none" stroke="#2a58b8" stroke-width="1.2" d="M1457.0,298.0L1457.5,298.0L1458.1,298.0L1458.6,298.1L1459.1,297.8L1459.7,298.3L1460.2,297.8L1460.7,298.3L1461.3,297.7L1461.8,299.0L1462.3,297.4L1462.9,299.1L1463.4,296.8L1463.9,298.9L1464.5,296.9L1465.0,300.0L1465.5,296.9L1466.1,299.3L1466.6,296.3L1467.1,300.0L1467.7,295.6L1468.2,299.9L1468.7,293.4L1469.3,303.0L1469.8,293.7L1470.3,302.8L1470.9,294.3L1471.4,305.3L1471.9,294.0L1472.5,301.4L1473.0,290.9L1473.5,302.8L1474.1,290.0L1474.6,302.3L1475.1,293.2L1475.7,308.2L1476.2,288.1L1476.7,303.7L1477.3,287.1L1477.8,302.6L1478.3,288.5L1478.9,309.2L1479.4,292.6L1479.9,304.1L1480.5,286.5L1481.0,303.8L1481.5,286.9L1482.1,307.2L1482.6,287.6L1483.1,304.5L1483.7,291.7L1484.2,305.3L1484.7,288.8L1485.3,307.9L1485.8,293.6L1486.3,305.2L1486.9,291.2L1487.4,306.1L1487.9,289.9L1488.5,302.5L1489.0,290.5L1489.5,304.1L1490.1,292.0L1490.6,305.9L1491.1,290.4L1491.7,302.9L1492.2,291.9L1492.7,301.5L1493.3,292.3L1493.8,300.9L1494.3,294.2L1494.9,300.3L1495.4,293.7L1495.9,301.8L1496.5,294.9L1497.0,300.3L1497.5,294.8L1498.1,299.5L1498.6,296.4L1499.1,299.5L1499.7,296.3L1500.2,299.3L1500.7,297.2L1501.3,298.7L1501.8,296.7L1502.3,299.4L1502.9,297.3L1503.4,298.6L1503.9,296.9L1504.5,298.8L1505.0,297.2L1505.5,298.8L1506.1,297.7L1506.6,298.5L1507.1,297.4L1507.7,298.5L1508.2,297.7L1508.7,298.4L1509.3,297.5L1509.8,298.3L1510.3,297.6L1510.9,298.4L1511.4,297.5L1511.9,298.4L1512.5,297.6L1513.0,298.4L1513.5,297.7L1514.1,298.2L1514.6,297.7L1515.1,298.3L1515.7,297.6L1516.2,298.2L1516.7,297.7L1517.3,298.2L1517.8,297.8L1518.3,298.1L1518.9,297.9L1519.4,298.1L1519.9,298.0L1520.5,298.0L1521.0,298.0"></path>
+  <line x1="1489" y1="323" x2="1489" y2="505" stroke="#333" stroke-width="1.5" marker-end="url(#bh)"></line>
+  <line x1="77" y1="336" x2="77" y2="505" stroke="#f07070" stroke-width="1.5" marker-end="url(#bhr)"></line>
+
+  <!-- loss -->
+  <rect x="9" y="507" width="1552" height="50" rx="8" fill="#ffe0e0" stroke="#f07070" stroke-width="1.6"></rect>
+  <text x="785" y="539" font-size="19" text-anchor="middle">Multi-scale STFT loss + formant supervision</text>
+</svg>
