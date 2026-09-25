@@ -1,0 +1,36 @@
+[project]
+name = "aris"
+version = "1.0.0"
+description = "ARIS: low-resource glass-box neural source-filter synthesis for phonetic stimulus manipulation"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.4",
+  "torchaudio>=2.4",
+  "lightning[pytorch-extra]>=2.4",
+  "torchlpc>=0.6,<0.7",  # 0.7 needs a C++ build; 0.6 is pure Python + numba
+  "kazane>=1.0",
+  "numpy",
+  "soundfile",
+  "pyyaml",
+  "praat-parselmouth>=0.4.4",
+]
+
+[project.optional-dependencies]
+# numba's CUDA JIT (used by torchlpc on GPU), with the CUDA toolchain from pip wheels
+gpu = ["numba-cuda[cu13]>=0.20", "numpy<2.4"]  # numba-cuda still uses np.row_stack
+plot = ["matplotlib"]
+rmvpe = ["librosa"]  # needed by RMVPE (F0 for new recordings / data preparation)
+
+[project.scripts]
+aris-prepare = "aris.prepare:main"
+aris-train = "aris.train:main"
+aris-edit = "aris.edit:main"
+
+[dependency-groups]
+dev = ["pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

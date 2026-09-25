@@ -1,0 +1,76 @@
+# ARIS as in the paper (24 kHz; FFT sizes and hops scaled by 1.5). Train with:
+#   aris-train fit -c configs/aris_24k.yaml --data.manifest_path data/<speaker>/manifest.csv
+seed_everything: 42
+trainer:
+  max_steps: 50000
+  val_check_interval: 2500
+  check_val_every_n_epoch: null
+  gradient_clip_val: 0.5
+  log_every_n_steps: 25
+  default_root_dir: runs
+  logger:
+    class_path: lightning.pytorch.loggers.CSVLogger
+    init_args: {save_dir: runs, name: aris}
+  callbacks:
+    - class_path: lightning.pytorch.callbacks.ModelCheckpoint
+      init_args: {monitor: val_loss, save_top_k: 3, save_last: true, filename: "{step}-{val_loss:.3f}"}
+    - class_path: aris.callbacks.ValidationAudio
+      init_args: {num_samples: 2, every_n_validations: 2}
+model:
+  sample_rate: 24000
+  decoder:
+    class_path: aris.vocoder.SourceFilterSynth
+    init_args:
+      harm_oscillator:
+        class_path: aris.source.GlottalSource
+        init_args: {table_size: 100, min_R_d: 0.3, max_R_d: 2.7, points: 2048, oversampling: 4, tilt_boost: 8.0}
+      noise_filter:
+        class_path: aris.vocoder.NoiseFilter
+        init_args: {n_mag: 513, window: hann}
+      end_filter:
+        class_path: aris.vocal_tract.VocalTract
+        init_args:
+          sr: 24000
+          f_ranges: [[220, 1100], [700, 3400], [2200, 4800]]   # F1-F3 (Hz); edits are clamped here
+          b_ranges: [[40, 400], [50, 450], [80, 700]]          # B1-B3 (Hz)
+          n_learned: 8          # residual pole pairs (0 = ablation "no residual")
+          n_zeros: 2            # gated nasal zeros (0 = ablation "no zeros")
+          nasal_fz_range: [600, 4500]   # zero frequency (Hz)
+          nasal_bz_range: [40, 600]     # zero bandwidth (Hz)
+          zero_gate_bias: -3.5          # gates start almost closed (sigmoid(-3.5) = 0.03)
+  criterion:
+    class_path: aris.losses.MultiScaleSpectralLoss
+    init_args: {n_ffts: [380, 764, 1532, 3080], linear_weight: 1.0, preemphasis: 0.85}   # 16-128 ms
+  # One encoder head per group; each head reads the branch named in encoder.head_inputs.
+  head_components:
+    - [harm_oscillator]
+    - [end_filter.gain, end_filter.formants, end_filter.residual, end_filter.zeros]
+    - [noise_filter]
+  encoder:
+    head_inputs: [source, tract, noise]
+    # Initial logits: [R_d, tilt] / [gain, F1, B1, F2, B2, F3, B3, (rest 0)] / noise envelope,
+    # i.e. R_d = 0.9, F1/F2/F3 = 500/1800/3350 Hz with reference bandwidths, gain e^-4.
+    head_biases: [[0.0, 1.0], [-4.0, -0.76, 0.0, -0.38, 0.0, -0.23, 0.0], -3.0]
+    n_fft: 1536          # tract branch: 64 ms
+    short_n_fft: 384     # noise branch: 16 ms
+    hop_length: 240      # 10 ms frames
+    num_harmonics: 100
+    model_dim: 256
+    num_layers: 6
+    num_heads: 8
+    ff_mult: 3
+    conv_kernel_size: 31
+    dropout: 0.1
+  formant_loss_weight: 2.0
+  formant_smooth_weight: 0.05
+  residual_reg_weight: 0.02
+  periodicity_loss_weight: 1.0
+  periodicity: {n_bands: 64, smooth_frames: 3, boundary_margin: 1}   # ERB bands
+data:
+  batch_size: 16
+  duration: 2.0      # segment length (s)
+  overlap: 1.0       # overlap between segments (s)
+  num_workers: 4
+optimizer:
+  class_path: torch.optim.Adam
+  init_args: {lr: 0.0002}
