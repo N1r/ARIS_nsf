@@ -6,7 +6,7 @@
 
 Yiran Ding and Wenwei Xu · Leiden University Centre for Linguistics (LUCL), Leiden University
 
-![Paper](https://img.shields.io/badge/paper-ICASSP%202027%20%28submitted%29-b31b1b.svg)
+[![arXiv](https://img.shields.io/badge/arXiv-2609.29923-b31b1b.svg)](https://arxiv.org/abs/2609.29923)
 [![Demo](https://img.shields.io/badge/demo-audio%20samples-4c1.svg)](https://n1r.github.io/ARIS_nsf/)
 [![Models](https://img.shields.io/badge/models-pretrained-orange.svg)](#pretrained-models)
 [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.12-blue.svg)](pyproject.toml)
